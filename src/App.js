@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import TodoForm from "./components/todoForm";
+import TodoForm from "./components/todoform";
 import Todos from "./components/todo";
 
 // import TodoContext from "./context/TodoContext";
