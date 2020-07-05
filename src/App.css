@@ -18,8 +18,8 @@ h1 {
 form {
   position: fixed;
   top: 80px;
-  right: 5%;
-  left: 5%;
+  right: 15%;
+  left: 15%;
   border-radius: 8px;
   border: 2px solid rgb(66, 66, 180);
   color: #000;
@@ -29,8 +29,8 @@ form {
 .items {
   position: fixed;
   top: 100px;
-  right: 5%;
-  left: 5%;
+  right: 15%;
+  left: 15%;
   border-radius: 3px;
   margin: 5px;
   padding: 5px;
