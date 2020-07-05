@@ -1,54 +1,46 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import {
   FormGroup,
   Input,
-  Button,
-  Form,
   InputGroup,
   InputGroupAddon,
+  Button,
+  Form,
+  Container,
 } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { v4 } from "uuid";
-import TodoContext from "../context/TodoContext";
-import { ADD_TODO } from "../context/action.types";
 
-const TodoForm = () => {
-  const [todoString, setTodoString] = useState("");
-  const { dispatch } = useContext(TodoContext);
+const TodoForm = ({ addTodos }) => {
+  const [TodoStr, setTodoStr] = useState("");
 
-  const submitTodo = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (todoString === "") {
-      return alert("Please enter a todo");
+    if (TodoStr === "") {
+      return alert("please fill todo");
     }
-
-    const todo = {
-      todoString,
+    const Todo = {
+      TodoStr,
       id: v4(),
     };
-
-    dispatch({
-      type: ADD_TODO,
-      payload: todo,
-    });
-
-    setTodoString("");
+    addTodos(Todo);
+    setTodoStr("");
   };
+
   return (
-    <Form onSubmit={submitTodo}>
+    <Form onSubmit={handleSubmit}>
       <FormGroup>
         <InputGroup>
           <Input
             type="text"
             name="todo"
             id="todo"
-            placeholder="Add todo"
-            value={todoString}
-            onChange={(e) => setTodoString(e.target.value)}
+            placeholder="Enter here..."
+            value={TodoStr}
+            onChange={(e) => setTodoStr(e.target.value)}
           />
           <InputGroupAddon addonType="prepend">
-            <Button color="primary" type="submit">
-              Add Todo
-            </Button>
+            <Button color="success">Add Todo</Button>
           </InputGroupAddon>
         </InputGroup>
       </FormGroup>
